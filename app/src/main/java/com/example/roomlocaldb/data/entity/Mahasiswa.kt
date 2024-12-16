@@ -13,3 +13,5 @@ data class Mahasiswa(
     val kelas:String,
     val angkatan:String,
 )
+
+
