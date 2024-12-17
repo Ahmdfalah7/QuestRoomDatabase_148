@@ -14,3 +14,4 @@ class ContainerApp(private val context: Context) : InterfaceContainerApp{
         LocalRepositoryMhs(krsDatabase.getDatabase(context).mahasiswaDao())
     }
 }
+
