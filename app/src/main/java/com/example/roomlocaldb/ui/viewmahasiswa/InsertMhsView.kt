@@ -26,12 +26,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.RoomLocalDB.ui.theme.Viewmodel.FormErrorState
+import com.example.RoomLocalDB.ui.theme.Viewmodel.MahasiswaEvent
+import com.example.RoomLocalDB.ui.theme.Viewmodel.MahasiswaViewModel
+import com.example.RoomLocalDB.ui.theme.Viewmodel.MhsUIState
 import com.example.roomlocaldb.ui.navigation.AlamatNavigasi
 import com.example.roomlocaldb.ui.costumwidget.TopAppBar
-import com.example.roomlocaldb.ui.viewmodel.FormErrorState
-import com.example.roomlocaldb.ui.viewmodel.MahasiswaEvent
-import com.example.roomlocaldb.ui.viewmodel.MahasiswaViewModel
-import com.example.roomlocaldb.ui.viewmodel.MhsUIState
 import com.example.roomlocaldb.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
@@ -40,19 +40,19 @@ object DestinasiInsert : AlamatNavigasi {
 }
 
 @Composable
-fun InserMhsView(
+fun InsertMhsView(
     onBack: () -> Unit,
     onNavigate: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: MahasiswaViewModel = viewModel(factory = PenyediaViewModel.Factory) //
 ) {
-    val uiState = viewModel.uiState //ambil ui state viewmodel
+    val uiState = viewModel.uiState
     val snackbarHostState = remember {SnackbarHostState() } //snackbar state
     val coroutineScope = rememberCoroutineScope()
 
-    //observasi perubahan snacbarmessage
-    LaunchedEffect(uiState.snackBarMessage) {
-        uiState.snackBarMessage?.let { message ->
+
+    LaunchedEffect(uiState.snackbarMessage) {
+        uiState.snackbarMessage?.let { message ->
             coroutineScope.launch {
                 snackbarHostState.showSnackbar(message) //tampilkan snackbar
                 viewModel.resetSnackBarMessage()
@@ -61,7 +61,7 @@ fun InserMhsView(
     }
     Scaffold (
         modifier = modifier,
-        snackbarHost = { SnackbarHost(hostState = snackbarHostState)} //tampilkan snackbar di scaffold
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState)}
     ) { padding ->
         Column (
             modifier = Modifier
@@ -70,16 +70,17 @@ fun InserMhsView(
                 .padding(16.dp)
         ){
 
-            CstTopAppBar(
+            TopAppBar(
                 onBack = onBack,
                 showBackButton = true,
-                judul = "Tambah Mahasiswa"
+                judul = "Tambah Mahasiswa",
+                modifier = modifier
             )
             //Isi Body
             InsertBodyMhs(
                 uiState = uiState,
                 onValueChange = { updateEvent ->
-                    viewModel.updateState(updateEvent) //update state di viewmodel
+                    viewModel.updateState(updateEvent)
                 },
                 onClick = {
                     coroutineScope.launch {
@@ -170,9 +171,9 @@ fun FormMahasiswa(
                     horizontalArrangement = Arrangement.Start
                 ) {
                     RadioButton(
-                        selected = mahasiswaEvent.jenisKelamin == jk,
+                        selected = mahasiswaEvent.jeniskelamin == jk,
                         onClick = {
-                            onValueChange(mahasiswaEvent.copy(jenisKelamin = jk))
+                            onValueChange(mahasiswaEvent.copy(jeniskelamin = jk))
                         },
                     )
                     Text(
@@ -181,7 +182,7 @@ fun FormMahasiswa(
                 }
             }
         }
-        Text(text = errorState.jenisKelamin ?: "", color = Color.Red)
+        Text(text = errorState.jeniskelamin ?: "", color = Color.Red)
 
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
