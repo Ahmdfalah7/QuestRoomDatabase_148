@@ -18,23 +18,17 @@ import com.example.roomlocaldb.ui.viewmahasiswa.UpdateMhsView
 @Composable
 fun PengelolaHalaman(
     navController: NavHostController = rememberNavController(),
-    modifier: Modifier = Modifier,
+    modifier: Modifier
 
     ){
-    NavHost(navController = navController, startDestination = DestinasiInsert.route){
-        composable(
-            route = DestinasiInsert.route
-        ){
-            InsertMhsView(onBack = {}, onNavigate = { })
-        }
-
+    NavHost(navController = navController, startDestination = DestinasiHome.route){
         composable(
             route = DestinasiHome.route
         ){
             HomeMhsView(
                 onDetailClick = { nim ->
                     navController.navigate("${DestinasiDetail.route}/$nim")
-                    kotlin.io.println("PengelolaHalaman: nim = $nim")
+                    println("PengelolaHalaman: nim = $nim")
                 },
                 onAddMhs = {
                     navController.navigate(DestinasiInsert.route)

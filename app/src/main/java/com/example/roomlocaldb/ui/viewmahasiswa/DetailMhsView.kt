@@ -220,11 +220,11 @@ private fun DeleteConfirmationDialog(
 ){
     AlertDialog(onDismissRequest = { /*TODO*/ },
         title = { Text( "Delete Data")},
-        text = { Text("Apakah anda yakin ingin mengahpus data?" )},
+        text = { Text("Apakah anda yakin ingin menghapus data?" )},
         modifier = modifier,
         dismissButton = {
             TextButton(onClick = onDeleteCencel) {
-                Text(text = "Cencel")
+                Text(text = "Cancel")
             }
         },
         confirmButton = {
