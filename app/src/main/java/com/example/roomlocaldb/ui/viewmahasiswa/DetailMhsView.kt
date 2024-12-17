@@ -32,12 +32,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.RoomLocalDB.ui.theme.Viewmodel.toMahasiswaEntity
 import com.example.roomlocaldb.data.entity.Mahasiswa
 import com.example.roomlocaldb.ui.costumwidget.TopAppBar
 import com.example.roomlocaldb.ui.viewmodel.DetailMhsViewModel
 import com.example.roomlocaldb.ui.viewmodel.DetailUiState
 import com.example.roomlocaldb.ui.viewmodel.PenyediaViewModel
+import com.example.roomlocaldb.ui.viewmodel.toMahasiswaEntity
 
 @Composable
 fun DetailMhsView(

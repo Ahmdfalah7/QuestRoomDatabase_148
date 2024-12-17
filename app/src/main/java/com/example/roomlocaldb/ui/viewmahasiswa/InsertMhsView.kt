@@ -26,12 +26,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.RoomLocalDB.ui.theme.Viewmodel.FormErrorState
-import com.example.RoomLocalDB.ui.theme.Viewmodel.MahasiswaEvent
-import com.example.RoomLocalDB.ui.theme.Viewmodel.MahasiswaViewModel
-import com.example.RoomLocalDB.ui.theme.Viewmodel.MhsUIState
 import com.example.roomlocaldb.ui.navigation.AlamatNavigasi
 import com.example.roomlocaldb.ui.costumwidget.TopAppBar
+import com.example.roomlocaldb.ui.viewmodel.FormErrorState
+import com.example.roomlocaldb.ui.viewmodel.MahasiswaEvent
+import com.example.roomlocaldb.ui.viewmodel.MahasiswaViewModel
+import com.example.roomlocaldb.ui.viewmodel.MhsUIState
 import com.example.roomlocaldb.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 

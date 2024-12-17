@@ -4,8 +4,6 @@ package com.example.roomlocaldb.ui.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.RoomLocalDB.ui.theme.Viewmodel.MahasiswaEvent
-import com.example.RoomLocalDB.ui.theme.Viewmodel.toMahasiswaEntity
 import com.example.roomlocaldb.data.entity.Mahasiswa
 import com.example.roomlocaldb.repository.RepositoryMhs
 import com.example.roomlocaldb.ui.navigation.DestinasiDetail
